@@ -38,77 +38,96 @@ public class Main {
             System.out.print(e + " ");
         }
     }
+
     public static void printThreeWorlds() {
         System.out.println("Orange \nBanana \nApple");
     }
+
     public static void checkSumSing() {
         int a = -2;
         int b = 3;
         if ((a + b) >= 0) {
             System.out.println("Сумма положительная");
-        } else {
+        }
+        else {
             System.out.println("Сумма отрицательная");
         }
     }
+
     public static void printColor() {
         int value = 200;
 
         if (value <= 0) {
             System.out.println("Красный");
-        } else if (value > 0 && value <= 100) {
+        }
+        else if (value <= 100) {
             System.out.println("Желтый");
-        } else {
+        }
+        else {
             System.out.println("Зеленый");
         }
     }
+
     public static void compareNumbers() {
         int a = -2;
         int b = -1;
 
         if (a >= b) {
             System.out.println("a >= b");
-        } else {
+        }
+        else {
             System.out.println("a < b");
         }
     }
+
     public static boolean isSumInRange(int a, int b) {
         return (a + b) >= 10 && (a + b) <= 20;
     }
+
     public static void positiveOrNegativeNumber(int a) {
         if (a >= 0) {
             System.out.println(a + " Положительное число");
-        } else {
+        }
+        else {
             System.out.println(a + " Отрицательное число");
         }
     }
+
     public static boolean isPositiveOrNegative(int a) {
         return a < 0;
     }
+
     public static void printLine(String line, int a) {
         for (int i = 1; i <= a; i++ ) {
             System.out.println(line);
         }
     }
+
     public static boolean LeapYearDefinition(int a) {
         return (a % 4 == 0 && a % 100 != 0) || a % 400 == 0;
     }
+
     public static void arrayTransformation(int [] myArray) {
         for (int i = 0; i < myArray.length; i++) {
             if (myArray[i] == 0) {
                 myArray[i] = 1;
-            } else if (myArray[i] == 1 ) {
+            }
+            else  {
                 myArray[i] = 0;
-            } else break;
+            }
         }
     }
+
     public static int[] fillingAnArray() {
         int [] myArray = new int[100];
         int a = 1;
         for (int i = 0; i < myArray.length; i++) {
             myArray[i] = a;
             a++;
-        } return myArray;
+        }
+        return myArray;
     }
+
     public static void incrementingValueInArray(int [] myArray) {
         for (int i = 0; i < myArray.length; i++) {
             if (myArray[i] < 6) {
@@ -116,6 +135,7 @@ public class Main {
             }
         }
     }
+
     public static int [][] twoDimensionalArray(int size) {
         int[][] array = new int[size][size];
         for (int i = 0; i < size; i++) {
@@ -124,12 +144,15 @@ public class Main {
                     array[i][j] = 1;
                 }
             }
-        } return array;
+        }
+        return array;
     }
+
     public static int [] getOneDimensionalArray(int len, int initialValue) {
         int [] array = new int [len];
         for (int i = 0; i < len; i++) {
             array[i] = initialValue;
-        } return array;
+        }
+        return array;
     }
 }
