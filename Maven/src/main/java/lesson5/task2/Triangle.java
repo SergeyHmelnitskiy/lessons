@@ -1,11 +1,9 @@
 package lesson5.task2;
 
-public class Triangle implements Shape, Fillable, Borderable {
+public class Triangle extends Figure {
     private double side1;
     private double side2;
     private double side3;
-    private String fillColor;
-    private String borderColor;
 
     public Triangle(double side1, double side2, double side3) {
         this.side1 = side1;
@@ -19,28 +17,7 @@ public class Triangle implements Shape, Fillable, Borderable {
 
     @Override
     public double calculateArea() {
-        double halfPerimeter = calculatePerimeter() / 2;
-        return Math.sqrt(halfPerimeter * (halfPerimeter - side1) *
-                (halfPerimeter - side2) * (halfPerimeter - side3));
-    }
-
-    @Override
-    public void setFillColor(String color) {
-        this.fillColor = color;
-    }
-
-    @Override
-    public String getFillColor() {
-        return fillColor;
-    }
-
-    @Override
-    public void setBorderColor(String color) {
-        this.borderColor = color;
-    }
-
-    @Override public String getBorderColor() {
-        return borderColor;
+        return calculateTriangleArea(side1, side2, side3);
     }
 
     public void printCharacteristics() {

@@ -1,10 +1,8 @@
 package lesson5.task2;
 
-public class Rectangle implements Shape, Fillable, Borderable {
+public class Rectangle extends Figure {
     private double width;
     private double height;
-    private String fillColor;
-    private String borderColor;
 
     public Rectangle(double width, double height) {
         this.width = width;
@@ -18,27 +16,7 @@ public class Rectangle implements Shape, Fillable, Borderable {
 
     @Override
     public double calculateArea() {
-        return width * height;
-    }
-
-    @Override
-    public void setFillColor(String color) {
-        this.fillColor = color;
-    }
-
-    @Override
-    public String getFillColor() {
-        return fillColor;
-    }
-
-    @Override
-    public void setBorderColor(String color) {
-        this.borderColor = color;
-    }
-
-    @Override
-    public String getBorderColor() {
-        return borderColor;
+        return calculateRectangleArea(width, height);
     }
 
     public void printCharacteristics() {
