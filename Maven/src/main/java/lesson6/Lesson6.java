@@ -28,7 +28,9 @@ public class Lesson6 {
         try {
             int result = sumArray(arrayErrorNumber);
             System.out.println("Сумма элементов массива: " + result);
-        } catch (MyArraySizeException | MyArrayDataException e) {
+        } catch (MyArrayDataException e) {
+            System.out.println(e.getMessage() + "строка " + e.getRow() + ", колонка " + e.getColumn());
+        } catch (MyArraySizeException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -43,9 +45,7 @@ public class Lesson6 {
                 try {
                     sum += Integer.parseInt(array[i][j]);
                 } catch (NumberFormatException e) {
-                    throw new MyArrayDataException("Ошибка в данных массива в ячейке " +
-                            "[" + i + "][" + j + "]" +
-                            " = " + array[i][j]);
+                    throw new MyArrayDataException("Неверные данные в ячейке массива : ", i, j);
                 }
             }
         }
