@@ -12,7 +12,7 @@ public class Lesson8 {
 
         WordProcessor wordProcessor = new WordProcessor(words);
 
-        System.out.println("Уникальные слово: " +  wordProcessor.getUniqueWords());
+        System.out.println("Уникальные слова: " +  wordProcessor.getUniqueWords());
         System.out.println("Количество вхождений каждого слова: " + wordProcessor.getCountWordOccurrences());
 
         // второе задание
