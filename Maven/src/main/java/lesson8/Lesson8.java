@@ -1,8 +1,5 @@
 package lesson8;
 
-import java.util.Map;
-import java.util.Set;
-
 public class Lesson8 {
     public static void main(String[] args) {
         // первое задание, создаем массив
