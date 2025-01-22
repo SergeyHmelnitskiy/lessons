@@ -3,15 +3,20 @@ package lesson8;
 import java.util.*;
 
 public class WordProcessor {
-    private Set<String> uniqueWords;
     private String[] words;
 
     public WordProcessor(String[] words) {
-        uniqueWords = new HashSet<>(Arrays.asList(words));
         this.words = words;
     }
 
     public Set<String> getUniqueWords() {
+        Set<String> uniqueWords = new HashSet<>();
+
+        for (String word : words) {
+            if (!uniqueWords.contains(word)) {
+                uniqueWords.add(word);
+            }
+        }
         return uniqueWords;
     }
 

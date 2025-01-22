@@ -18,6 +18,7 @@ public class PhoneBook {
 
     public List<String> get(String lastName) {
         List<String> numbers = phoneBook.get(lastName);
+
         if(numbers.isEmpty()) {
             return Collections.emptyList();
         }

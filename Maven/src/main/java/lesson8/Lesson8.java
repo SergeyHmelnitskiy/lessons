@@ -2,7 +2,7 @@ package lesson8;
 
 public class Lesson8 {
     public static void main(String[] args) {
-        // первое задание, создаем массив
+        // первое задание
         String[] words = {"planet", "yoga", "electrical", "aurora",
                 "justice", "cube", "strain", "planet", "discount",
                 "pony", "moth", "cube", "pony", "dragonfly"};
