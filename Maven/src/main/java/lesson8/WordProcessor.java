@@ -11,16 +11,19 @@ public class WordProcessor {
 
     public Set<String> getUniqueWords() {
         Set<String> uniqueWords = new HashSet<>();
+        Set<String> allWords = new HashSet<>();
 
         for (String word : words) {
-            if (!uniqueWords.contains(word)) {
+            if (!allWords.add(word)) {
+                uniqueWords.remove(word);
+            } else {
                 uniqueWords.add(word);
             }
         }
         return uniqueWords;
     }
 
-    public Map<String, Integer> getCountWordOccurrences() {
+        public Map<String, Integer> getCountWordOccurrences() {
         Map<String, Integer> wordOccurrences = new HashMap<>();
 
         for (String word : words) {
