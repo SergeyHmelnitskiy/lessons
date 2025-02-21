@@ -18,6 +18,7 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.get("https://www.mts.by/");
         homePage = new HomePage(driver);
+        driver.manage().deleteAllCookies();
     }
 
     @AfterEach
