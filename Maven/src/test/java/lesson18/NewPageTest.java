@@ -38,7 +38,7 @@ public class NewPageTest extends BaseTest {
         String actualText = homePage.getPayButtonText();
         assertEquals(expectedText, actualText,
                 "Текст кнопки 'Оплатить 5.00 BYN' не соответствует ожидаемому");
-        Allure.addAttachment("Button Text", "Ожидаемый текст: " + expectedText + ", Фактический текст: " + actualText);
+        Allure.addAttachment("Текст кнопки оплаты", "Ожидаемый текст: " + expectedText + ", Фактический текст: " + actualText);
     }
 
     @Step("Проверка текста оплаты")
@@ -47,7 +47,7 @@ public class NewPageTest extends BaseTest {
         String actualText = homePage.getPayText();
         assertEquals(expectedText, actualText,
                 "Текст '5.00 BYN' не соответствует ожидаемому");
-        Allure.addAttachment("Payment Amount Text", "Ожидаемый текст: " + expectedText + ", Фактический текст: " + actualText);
+        Allure.addAttachment("Текст суммы оплаты", "Ожидаемый текст: " + expectedText + ", Фактический текст: " + actualText);
     }
 
     @Step("Проверка плейсхолдеров формы")
@@ -63,7 +63,48 @@ public class NewPageTest extends BaseTest {
         String actualText = placeholderElement.findElement(By.xpath("./../label")).getText();
         assertEquals(expectedText, actualText,
                 "Текст '" + expectedText + "' не соответствует ожидаемому");
-        Allure.addAttachment("Placeholder Verification - " + expectedText,
+        Allure.addAttachment("Проверка плейсхолдера - " + expectedText,
+                "Ожидаемый текст: " + expectedText + ", Фактический текст: " + actualText);
+    }
+
+    @Test
+    @DisplayName("Проверка плейсхолдеров формы онлайн оплаты без комиссии")
+    @Description("Метод проверяет правильные плейсхолдеры для различных полей разных форм меню.")
+    public void testPlaceholders() {
+        HomePage page = new HomePage(driver);
+
+        page.getSelectPayOptionButton().click();
+        page.getPayOptions().get(1).click();
+
+        verifyPlaceholder("Номер телефона", page.getPhoneNumberField().getDomAttribute("placeholder"));
+        verifyPlaceholder("Сумма", page.getAmountField().getDomAttribute("placeholder"));
+        verifyPlaceholder("E-mail для отправки чека", page.getEmailField().getDomAttribute("placeholder"));
+        verifyPlaceholder("Номер абонента", page.getInternetPhoneField().getDomAttribute("placeholder"));
+        verifyPlaceholder("Сумма", page.getInternetAmountField().getDomAttribute("placeholder"));
+        verifyPlaceholder("E-mail для отправки чека", page.getInternetEmailField().getDomAttribute("placeholder"));
+
+        page.getSelectPayOptionButton().click();
+        page.getPayOptions().get(2).click();
+
+        verifyPlaceholder("Номер счета на 44", page.getAccountNumber44Field().getDomAttribute("placeholder"));
+        verifyPlaceholder("Сумма", page.getAmount44Field().getDomAttribute("placeholder"));
+        verifyPlaceholder("E-mail для отправки чека", page.getInstalmentEmailField().getDomAttribute("placeholder"));
+
+        page.getSelectPayOptionButton().click();
+        page.getPayOptions().get(3).click();
+
+        verifyPlaceholder("Номер счета на 2073", page.getAccountNumber2073Field().getDomAttribute("placeholder"));
+        verifyPlaceholder("Сумма", page.getAmountArrearsField().getDomAttribute("placeholder"));
+        verifyPlaceholder("E-mail для отправки чека", page.getArrearsEmailField().getDomAttribute("placeholder"));
+    }
+
+    @Step("Проверка плейсхолдера '{0}'")
+    private void verifyPlaceholder(String expectedText, String actualText) {
+        assertEquals(expectedText, actualText,
+                "Текст плейсхолдера '" + expectedText + "' не соответствует ожидаемому");
+
+        // Прикрепляем информацию о проверке в отчет Allure
+        Allure.addAttachment("Проверка плейсхолдера: " + expectedText,
                 "Ожидаемый текст: " + expectedText + ", Фактический текст: " + actualText);
     }
 }
